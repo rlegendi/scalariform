@@ -97,6 +97,11 @@ case class Type(contents: List[TypeElement]) extends AstNode with TypeElement {
   lazy val tokens = flatten(contents)
 }
 
+/** Both for Specs2 unit and acceptance tests. */
+case class Specs2Type(contents: List[TypeElement]) extends AstNode with TypeElement {
+  lazy val tokens = flatten(contents)
+}
+
 case class VarianceTypeElement(id: Token) extends AstNode with TypeElement {
   lazy val tokens = flatten(id)
 }

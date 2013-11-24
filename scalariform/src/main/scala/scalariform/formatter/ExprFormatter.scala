@@ -645,14 +645,14 @@ trait ExprFormatter { self: HasFormattingPreferences with AnnotationFormatter wi
                   formatResult = formatResult.before(firstToken, instruction)
                 }
                 formatResult ++= format(subStatSeq)(subStatState)
-              case _ ⇒
+              case _ ⇒ // Specs2 here
                 val instruction = statSeq.selfReferenceOpt match {
                   case Some((selfReference, arrow)) if !hiddenPredecessors(selfReference.firstToken).containsNewline ⇒
                     CompactEnsuringGap
                   case _ ⇒
                     statFormatterState(statSeq.firstStatOpt)(indentedState).currentIndentLevelInstruction
                 }
-                formatResult = formatResult.before(statSeq.firstToken, instruction)
+                formatResult = formatResult.before(statSeq.firstToken, instruction) // we should fill it with spaces here
                 formatResult ++= format(statSeq)(indentedState)
             }
           }

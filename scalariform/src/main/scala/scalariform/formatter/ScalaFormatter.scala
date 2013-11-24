@@ -23,6 +23,7 @@ trait HasHiddenTokenInfo {
   def newlineBefore(node: AstNode): Boolean = newlineBefore(node.firstToken)
 }
 
+// Here comes the Specs2 formatter in
 abstract class ScalaFormatter extends HasFormattingPreferences with TypeFormatter with AnnotationFormatter with ExprFormatter with HasHiddenTokenInfo with TemplateFormatter with XmlFormatter with CaseClauseFormatter with CommentFormatter {
 
   val newlineSequence: String
